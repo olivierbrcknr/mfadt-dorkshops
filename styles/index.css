@@ -1,0 +1,54 @@
+* {
+  position: relative;
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--color-highlight);
+}
+
+html, body {
+  font-family: var(--font-family-reg);
+  background: var(--color-bg);
+  color: var(--color-font);
+  font-size: var(--font-size);
+
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+a:hover {
+  text-decoration: none;
+}
+
+.wrapper {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.filters {
+
+}
+
+.infoText {
+  opacity: 0.3;
+  font-size: 13px;
+}
+
+.dorkshopList {
+
+}
+
+.noDorkshopInfo {
+  margin: 5rem 0;
+  opacity: 0.3;
+}

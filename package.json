@@ -1,0 +1,29 @@
+{
+  "name": "dorkshop-page",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Olivier Brueckner",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@svgr/webpack": "^5.5.0",
+    "airtable": "^0.11.1",
+    "moment": "^2.29.1",
+    "next": "^11.1.2",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-moment": "^1.1.1",
+    "react-obfuscate": "^3.6.8",
+    "webpack": "^5.52.1"
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "raw-loader": "^4.0.2",
+    "url-loader": "^4.1.1"
+  }
+}
