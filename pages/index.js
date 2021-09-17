@@ -94,7 +94,7 @@ const Home = () => {
           You want to give a dorkshop? We are looking forward to it!<br/>
 
           <a href="https://docs.google.com/forms/d/e/1FAIpQLScBLMpVnizFyyapJ1PTbb3Sv_dPycEJXUeMqFN90u0SsrcWfQ/viewform?usp=sf_link" className="button">
-            Enter your dorkshop
+            → enter your dorkshop
           </a>
 
         </div>

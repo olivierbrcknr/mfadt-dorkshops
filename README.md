@@ -2,10 +2,10 @@
 
 ## Setup
 
-You need to provide an `.env` file. It should look like this
+This website fetches a list from [Airtable](https://www.airtable.com/) and displays it. For it to work you need to provide an `.env` file. It should look like this:
 
-```
-# airtable
+```sh
+# Airtable
 AIRTABLE_API_KEY="<Your airtable API key>"
 AIRTABLE_BASE_ID="<Your airtable password>"
 
@@ -16,6 +16,8 @@ FTP_SERVER="<Your FTP server URL>"
 FTP_PORT="<Your FTP port>"
 FTP_DIRECTORY="<Your FTP directory>"
 ```
+
+The table itself needs these columns: `Title`, `Description`, `Date` (in date format), `Duration` (in duration format), `Place`, `Person`, and `Email`.
 
 ## Development
 

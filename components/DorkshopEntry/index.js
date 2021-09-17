@@ -30,7 +30,7 @@ const DorkshopEntry = (props) => {
           headers={{
             subject: "Dorkshop: " + info.Title
           }} >
-          <span className={styles.emailButton}>
+          <span className={styles.emailButton + " button"}>
             email
           </span>
         </Obfuscate>
