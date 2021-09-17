@@ -2,7 +2,7 @@
 
 module.exports =
   {
-    basePath: '/dorkshop',
+    basePath: '/dorkshops',
     trailingSlash: true,
       exportPathMap: function() {
       return {
