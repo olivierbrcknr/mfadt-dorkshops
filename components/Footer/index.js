@@ -10,7 +10,7 @@ const Footer = (props) => {
 
   return (
     <footer className={classes.join(" ")}>
-      MFADT &copy; 2021
+      MFADT &copy; 2021 — <a href="https://docs.google.com/forms/d/e/1FAIpQLScBLMpVnizFyyapJ1PTbb3Sv_dPycEJXUeMqFN90u0SsrcWfQ/viewform?usp=sf_link">Enter a dorkshop</a> — <a href="https://airtable.com/shrZju1aTS5ancG8y">airtable</a>
     </footer>
   )
 }

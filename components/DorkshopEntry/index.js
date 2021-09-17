@@ -26,9 +26,9 @@ const DorkshopEntry = (props) => {
 
       <p className={styles.personInfo}>
         { info.Person }
-        <Obfuscate email={`${info.Email}@newschool.edu`}
+        <Obfuscate email={info.Email}
           headers={{
-            subject: info.Title
+            subject: "Dorkshop: " + info.Title
           }} >
           <span className={styles.emailButton}>
             email
@@ -37,7 +37,7 @@ const DorkshopEntry = (props) => {
       </p>
 
       <div className={styles.dateInfo}>
-        <Moment format={dateFormat}>{info.Date}</Moment> - <Moment format={dateFormatEnd} add={{ minutes: durationInMinutes }}>{info.Date}</Moment>
+        <Moment format={dateFormat}>{info.Date}</Moment> - <Moment format={dateFormatEnd} add={{ minutes: durationInMinutes }}>{info.Date}</Moment> {info.Place ? '— '+info.Place : null}
       </div>
 
       <p className={styles.description}>

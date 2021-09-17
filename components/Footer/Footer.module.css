@@ -1,4 +1,6 @@
 footer.Footer {
   padding: 2rem 0;
   font-size: 0.8rem;
+
+  border-top: solid 1px var(--color-gray);
 }

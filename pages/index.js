@@ -2,6 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 
 import Airtable from 'airtable'
+import moment from 'moment'
 
 // Components
 import Head from '../components/Head'
@@ -46,7 +47,7 @@ const Home = () => {
   }
 
 
-  const filteredEntries = data.filter(d => d.fields.Title.toLowerCase().includes(search.toLowerCase()) )
+  const filteredEntries = data.filter(d => d.fields.Title.toLowerCase().includes(search.toLowerCase()) && moment().diff(d.fields.Date,'days') <= 0  )
 
   let entries = filteredEntries.map( (d,k) =>{
     return <Dorkshop key={k} passKey={k} fields={d.fields} />
@@ -62,7 +63,7 @@ const Home = () => {
   return (
     <div className={classes.join(' ')}>
 
-      <Head title="Home" />
+      <Head title="Dorkshops" />
 
       <div className="wrapper">
 
@@ -82,13 +83,21 @@ const Home = () => {
         </div>
 
         <div className="infoText">
-          The entries are sorted by date
+          The entries are sorted by date. Only upcoming dorkshops are shown.
         </div>
 
         <div className="dorkshopList">
           {entries}
         </div>
 
+        <div className="newEntry">
+          You want to give a dorkshop? We are looking forward to it!<br/>
+
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScBLMpVnizFyyapJ1PTbb3Sv_dPycEJXUeMqFN90u0SsrcWfQ/viewform?usp=sf_link" className="button">
+            Enter your dorkshop
+          </a>
+
+        </div>
 
         <Footer />
 
