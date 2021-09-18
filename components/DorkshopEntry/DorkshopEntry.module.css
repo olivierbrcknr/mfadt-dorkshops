@@ -15,15 +15,31 @@
   font-weight: 600;
 }
 
-.emailButton {
-  margin-left: 0.5em;
-}
-
-
 .dateInfo {
   font-weight: 600;
 }
 
 .description {
   margin-top: 1.5rem;
+}
+
+
+.emailButton,
+.calenderEvent {
+  display: inline-block;
+  border: solid 2px var(--color-highlight);
+  color: var(--color-highlight);
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  padding: 0.1em 0.2em;
+  vertical-align: 0.2em;
+  font-size: 0.7rem;
+
+  border-radius: 5px;
+}
+.emailButton:hover,
+.calenderEvent:hover {
+  background: var(--color-highlight);
+  color: var(--color-font);
 }
