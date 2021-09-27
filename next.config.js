@@ -7,6 +7,7 @@ module.exports =
       exportPathMap: function() {
       return {
         '/': { page: '/' },
+        '/email': { page: '/email' },
       };
     },
     webpack(config, options) {

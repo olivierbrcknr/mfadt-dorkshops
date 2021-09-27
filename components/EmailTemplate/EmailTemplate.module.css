@@ -1,0 +1,47 @@
+.EmailTemplate {
+
+  background: #FFF;
+  padding: 20px;
+  border-radius: 1rem;
+
+  color: #000;
+
+}
+
+.EmailTemplate p + p {
+  margin-top: 0.5em;
+}
+
+.EmailHeader {
+  border-bottom: solid 1px #CCC;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+.EmailHeaderInfo {
+  color: #AAA;
+}
+
+.EmailContent {
+
+
+}
+
+
+.CopyBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: solid 1px currentColor;
+  padding: 0.4em;
+  border-radius: 0.3em;
+  cursor: pointer;
+}
+.CopyBtn:hover {
+  background: #EEE;
+}
+
+.CopyBtn:active {
+  background: var(--color-highlight);
+  border-color: var(--color-highlight);
+}
