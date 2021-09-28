@@ -47,9 +47,20 @@ const Home = () => {
   }
 
 
-  const filteredEntries = data.filter(d => d.fields.Title.toLowerCase().includes(search.toLowerCase()) && moment().diff(d.fields.Date,'days') <= 0  )
+  const filteredEntries = data.filter(d =>{
+
+    const durationInMinutes = d.fields.Duration / 60
+    const endDate = moment( d.fields.Date ).add(durationInMinutes, 'minutes').toDate()
+
+    if( d.fields.Title.toLowerCase().includes(search.toLowerCase()) && moment().diff(endDate,'minutes') <= 0 ){
+      return true
+    }else{
+      return false
+    }
+  })
 
   let entries = filteredEntries.map( (d,k) =>{
+
     return <Dorkshop key={k} passKey={k} fields={d.fields} />
   } )
 

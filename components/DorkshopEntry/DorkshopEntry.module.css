@@ -43,3 +43,10 @@
   background: var(--color-highlight);
   color: var(--color-font);
 }
+
+
+.isNow {
+  color: var(--color-highlight);
+  font-size: 1rem;
+  vertical-align: 0.3em;
+}

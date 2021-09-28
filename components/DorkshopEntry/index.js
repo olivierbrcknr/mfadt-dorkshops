@@ -22,7 +22,9 @@ const DorkshopEntry = (props) => {
   const durationInMinutes = info.Duration / 60
 
   const startDate = new Date( info.Date )
-  const endDate = moment( info.Date  ).add(durationInMinutes, 'minutes').toDate()
+  const endDate = moment( info.Date ).add(durationInMinutes, 'minutes').toDate()
+
+  let isNow = moment().diff(info.Date,'minutes') >= 0 ? true : false
 
   const calendarEventConfig = {
     title: 'Dorkshop: ' + info.Title,
@@ -40,7 +42,7 @@ const DorkshopEntry = (props) => {
     <div className={classes.join(" ")}>
 
       <h2>
-        { info.Title }
+        { info.Title } { isNow ? <span className={styles.isNow}>→ is running now</span> : null }
       </h2>
 
       <p className={styles.personInfo}>
