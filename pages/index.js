@@ -7,6 +7,7 @@ import moment from 'moment'
 // Components
 import Head from '../components/Head'
 import Footer from '../components/Footer'
+import Background from '../components/Background'
 
 import FilterBar from '../components/FilterBar'
 import Dorkshop from '../components/DorkshopEntry'
@@ -75,6 +76,8 @@ const Home = () => {
     <div className={classes.join(' ')}>
 
       <Head title="Dorkshops" />
+
+      <Background />
 
       <div className="wrapper">
 
