@@ -25,3 +25,4 @@ secrets.json
 .env.build
 
 .vercel
+googleKey.json

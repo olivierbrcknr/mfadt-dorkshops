@@ -2,12 +2,14 @@
 
 ## Setup
 
-This website fetches a list from [Airtable](https://www.airtable.com/) and displays it. For it to work you need to provide an `.env` file. It should look like this:
+This website fetches a list from [Google Sheets](https://www.google.com/sheets/about/) and displays it. For it to work you need to provide an `.env` file. It should look like this:
 
 ```sh
-# Airtable
-AIRTABLE_API_KEY="<Your airtable API key>"
-AIRTABLE_BASE_ID="<Your airtable password>"
+# Google Sheet
+GOOGLE_SHEETS_ID="<Your Google Sheet ID>"
+GOOGLE_SHEET_ID="<Your Google Sheet (table) ID>"
+GOOGLE_SERVICE_ACCOUNT_EMAIL="<Your Google Service Account Email>"
+GOOGLE_PRIVATE_KEY="<Your Google Private Key>"
 
 # FTP Server
 FTP_USER="<Your FTP user>"
@@ -17,7 +19,7 @@ FTP_PORT="<Your FTP port>"
 FTP_DIRECTORY="<Your FTP directory>"
 ```
 
-The table itself needs these columns: `Title`, `Description`, `Date` (in date format), `Duration` (in duration format), `Place`, `Person`, and `Email`.
+The table itself needs these columns: `Title`, `Description`, `Date` (in date format), `Time` (in time format), `Duration` (in duration format), `Place`, `Person`, and `Email`. For validation it also need the columns `IsHappening` and `IsReady`.
 
 ## Development
 

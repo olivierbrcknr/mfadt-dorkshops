@@ -23,6 +23,10 @@
   margin-top: 1.5rem;
 }
 
+.subParagraph + .subParagraph {
+  margin-top: 0.5em;
+  display: block;
+}
 
 .emailButton,
 .calenderEvent {

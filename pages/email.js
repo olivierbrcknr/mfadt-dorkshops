@@ -9,34 +9,19 @@ import Head from '../components/Head'
 
 import EmailTemplate from '../components/EmailTemplate'
 
-const Email = () => {
+// Utils
+import {getSheetData} from '../components/utils/google_sheet'
+
+const Email = ({ sheetData }) => {
 
   const [ data, setData ] = useState([])
   const [ search, setSearch ] = useState('')
 
   let classes = ['email']
 
-  const getData=()=>{
-
-    let pseudoData = []
-
-    const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base(process.env.AIRTABLE_BASE_ID)
-
-    base('DorkshopList').select({
-      view: 'Grid view'
-    }).firstPage(function(err, records) {
-      if (err) { console.error(err); return; }
-      records.forEach(function(record) {
-        console.log('Retrieved', record.get('Title'))
-        pseudoData.push(record)
-      })
-      setData( pseudoData )
-    })
-  }
-
   useEffect(()=>{
-    getData()
-  },[])
+    setData( sheetData )
+  },[sheetData])
 
   return (
     <div className={classes.join(' ')}>
@@ -51,6 +36,15 @@ const Email = () => {
 
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const sheetData = await getSheetData()
+
+  return {
+    props: { sheetData },
+    // revalidate: 10, // In seconds
+  }
 }
 
 export default Email

@@ -19,12 +19,10 @@ const DorkshopEntry = (props) => {
   const dateFormat = "LLLL"
   const dateFormatEnd = "LT"
 
-  const durationInMinutes = info.Duration / 60
+  const startDate = moment( info.StartDate ).toDate()
+  const endDate = moment( info.EndDate ).toDate()
 
-  const startDate = new Date( info.Date )
-  const endDate = moment( info.Date ).add(durationInMinutes, 'minutes').toDate()
-
-  let isNow = moment().diff(info.Date,'minutes') >= 0 ? true : false
+  let isNow = moment().diff( startDate ,'minutes') >= 0 ? true : false
 
   const calendarEventConfig = {
     title: 'Dorkshop: ' + info.Title,
@@ -37,9 +35,8 @@ const DorkshopEntry = (props) => {
   const googleCalendarEvent = new GoogleCalendar( calendarEventConfig )
   const icalendarEvent = new ICalendar( calendarEventConfig )
 
-
   return (
-    <div className={classes.join(" ")}>
+    <div className={classes.join(" ")} key={'dorkshop-'+props.passKey}>
 
       <h2>
         { info.Title } { isNow ? <span className={styles.isNow}>→ is running now</span> : null }
@@ -58,7 +55,11 @@ const DorkshopEntry = (props) => {
       </p>
 
       <div className={styles.dateInfo}>
-        <Moment format={dateFormat}>{info.Date}</Moment> - <Moment format={dateFormatEnd} add={{ minutes: durationInMinutes }}>{info.Date}</Moment> {info.Place ? '— '+info.Place : null}
+        <Moment format={dateFormat}>
+          {info.StartDate}
+        </Moment> - <Moment format={dateFormatEnd}>
+          {info.EndDate}
+        </Moment> {info.Place ? '— '+info.Place : null}
 
         <a className={styles.calenderEvent} href={ googleCalendarEvent.render() } target="_blank">
           Google Calendar
@@ -71,7 +72,7 @@ const DorkshopEntry = (props) => {
       </div>
 
       <p className={styles.description}>
-        { info.Description }
+      { info.Description.split(/\n/).map( (line,n) => <span key={props.passKey+'-paragraph-'+n} className={styles.subParagraph}>{line}</span>) }
       </p>
 
     </div>

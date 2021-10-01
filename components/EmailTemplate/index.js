@@ -18,16 +18,12 @@ const EmailTemplate = (props) => {
   const dateFormat = "LLLL"
   const dateFormatEnd = "LT"
 
-  const currentMonth = "October"
-
-  const filteredEntries = props.data.filter(d => moment().diff(d.fields.Date,'days') <= 0  )
+  const filteredEntries = props.data.filter(d => moment().diff(d.StartDate,'days') <= 0  )
 
   if( filteredEntries.length > 0 ){
     entries = filteredEntries.map( (d,k) =>{
 
-      const info = d.fields
-
-      const durationInMinutes = info.Duration / 60
+      const info = d
 
       return <div key={"dorkshop-"+k}>
 
@@ -37,12 +33,14 @@ const EmailTemplate = (props) => {
         <p className={styles.personInfo}>
           { info.Person } — <Obfuscate email={info.Email}/>
         <br/>
-          <Moment format={dateFormat}>{info.Date}</Moment> - <Moment format={dateFormatEnd} add={{ minutes: durationInMinutes }}>{info.Date}</Moment> {info.Place ? '— '+info.Place : null}
+          <Moment format={dateFormat}>
+            {info.StartDate}
+          </Moment> - <Moment format={dateFormatEnd}>
+            {info.EndDate}
+          </Moment> {info.Place ? '— '+info.Place : null}
         </p>
 
-        <p className={styles.description}>
-          { info.Description }
-        </p>
+        { info.Description.split(/\n/).map(line => <p className={styles.description}>{line}</p>) }
 
         <p>
           ———————
@@ -81,7 +79,7 @@ const EmailTemplate = (props) => {
 
       <div className={styles.EmailHeader}>
         <span className={styles.EmailHeaderInfo}>To:</span> MFADT<br/>
-        <span className={styles.EmailHeaderInfo}>Subject:</span> Dorkshops {currentMonth}
+        <span className={styles.EmailHeaderInfo}>Subject:</span> Dorkshops this month
 
         <div onClick={()=>copyText()} className={styles.CopyBtn}>
           Copy Email

@@ -1,7 +1,6 @@
 // React
 import React, { useEffect, useState, useRef } from 'react'
 
-import Airtable from 'airtable'
 import moment from 'moment'
 
 // Components
@@ -12,48 +11,28 @@ import Background from '../components/Background'
 import FilterBar from '../components/FilterBar'
 import Dorkshop from '../components/DorkshopEntry'
 
-const Home = () => {
+// Utils
+import {getSheetData} from '../components/utils/google_sheet'
+
+const Home = ({ sheetData }) => {
 
   const [ data, setData ] = useState([])
   const [ search, setSearch ] = useState('')
 
   let classes = ['home']
 
-  const getData=()=>{
-
-    let pseudoData = []
-
-    const base = new Airtable({apiKey: process.env.AIRTABLE_API_KEY}).base(process.env.AIRTABLE_BASE_ID)
-
-    base('DorkshopList').select({
-      view: 'Grid view'
-    }).firstPage(function(err, records) {
-      if (err) { console.error(err); return; }
-      records.forEach(function(record) {
-        console.log('Retrieved', record.get('Title'))
-        pseudoData.push(record)
-      })
-      setData( pseudoData )
-    })
-  }
-
   useEffect(()=>{
-    getData()
-  },[])
-
+    setData( sheetData )
+  },[sheetData])
 
   // function to collect participants
   const signUpAdd = () => {
 
   }
 
-
   const filteredEntries = data.filter(d =>{
 
-    const durationInMinutes = d.fields.Duration / 60
-    const endDate = moment( d.fields.Date ).add(durationInMinutes, 'minutes').toDate()
-
-    if( d.fields.Title.toLowerCase().includes(search.toLowerCase()) && moment().diff(endDate,'minutes') <= 0 ){
+    if( d.Title.toLowerCase().includes(search.toLowerCase()) && moment().diff(d.EndDate,'minutes') <= 0 ){
       return true
     }else{
       return false
@@ -61,10 +40,8 @@ const Home = () => {
   })
 
   let entries = filteredEntries.map( (d,k) =>{
-
-    return <Dorkshop key={k} passKey={k} fields={d.fields} />
+    return <Dorkshop key={k} passKey={k} fields={d} />
   } )
-
 
   if( entries.length <= 0 ){
     entries = <div className="noDorkshopInfo">
@@ -119,6 +96,15 @@ const Home = () => {
 
     </div>
   )
+}
+
+export async function getStaticProps() {
+  const sheetData = await getSheetData()
+
+  return {
+    props: { sheetData },
+    // revalidate: 10, // In seconds
+  }
 }
 
 export default Home
