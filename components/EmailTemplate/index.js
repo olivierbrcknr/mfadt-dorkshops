@@ -112,7 +112,7 @@ const EmailTemplate = (props) => {
           We hope there is something in there for you! Also, check the <a href="https://mfadt.parsons.edu/dorkshops/">dorkshop website</a> to see upcoming dorkshops.
         </p>
         <p>
-          Do you want to give a dorkshop? Send us an email or fill out <a href="https://docs.google.com/forms/d/e/1FAIpQLScBLMpVnizFyyapJ1PTbb3Sv_dPycEJXUeMqFN90u0SsrcWfQ/viewform?usp=sf_link">this form</a>.
+          Do you want to give a dorkshop? Send us an email or fill out <a href="https://airtable.com/shrGl9Ymp2a4u1iXy">this form</a>.
         </p>
         <p>
           — The dorkshop team

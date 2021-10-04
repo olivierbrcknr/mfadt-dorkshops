@@ -93,7 +93,7 @@ const Home = (/*{ sheetData }*/) => {
         <div className="newEntry">
           You want to give a dorkshop? We are looking forward to it!<br/>
 
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScBLMpVnizFyyapJ1PTbb3Sv_dPycEJXUeMqFN90u0SsrcWfQ/viewform?usp=sf_link" className="button">
+          <a href="https://airtable.com/shrGl9Ymp2a4u1iXy" className="button">
             → enter your dorkshop
           </a>
 
