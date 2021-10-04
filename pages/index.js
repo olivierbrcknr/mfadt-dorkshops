@@ -12,18 +12,27 @@ import FilterBar from '../components/FilterBar'
 import Dorkshop from '../components/DorkshopEntry'
 
 // Utils
-import {getSheetData} from '../components/utils/google_sheet'
+// import {getSheetData} from '../components/utils/google_sheet'
+import {getAirtableData} from '../components/utils/airtable'
 
-const Home = ({ sheetData }) => {
+const Home = (/*{ sheetData }*/) => {
 
   const [ data, setData ] = useState([])
   const [ search, setSearch ] = useState('')
 
   let classes = ['home']
 
+  /*
+  // GOOGLE SHEETS
   useEffect(()=>{
     setData( sheetData )
   },[sheetData])
+  */
+
+  useEffect(async ()=>{
+    let airtableData = await getAirtableData()
+    setData( airtableData )
+  },[])
 
   // function to collect participants
   const signUpAdd = () => {
@@ -98,6 +107,7 @@ const Home = ({ sheetData }) => {
   )
 }
 
+/*
 export async function getStaticProps() {
   const sheetData = await getSheetData()
 
@@ -106,5 +116,6 @@ export async function getStaticProps() {
     // revalidate: 10, // In seconds
   }
 }
+*/
 
 export default Home

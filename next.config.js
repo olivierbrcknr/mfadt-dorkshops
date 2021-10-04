@@ -44,9 +44,11 @@ module.exports =
       return config
     },
     env: {
-      GOOGLE_SHEETS_ID: process.env.GOOGLE_SHEETS_ID,
+      AIRTABLE_API_KEY: process.env.AIRTABLE_API_KEY,
+      AIRTABLE_BASE_ID: process.env.AIRTABLE_BASE_ID,
+      /*GOOGLE_SHEETS_ID: process.env.GOOGLE_SHEETS_ID,
       SHEET_ID: process.env.SHEET_ID,
       GOOGLE_SERVICE_ACCOUNT_EMAIL: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-      GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY,
+      GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY,*/
     },
   }
