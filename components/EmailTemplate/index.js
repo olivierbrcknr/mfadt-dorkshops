@@ -94,7 +94,7 @@ const EmailTemplate = (props) => {
           Hello everyone!
         </p>
         <p>
-          Here are this months dorkshops:
+          Here are the next dorkshops:
         </p>
 
         <br/>
