@@ -23,6 +23,13 @@ const Background = (props) => {
     let speedY = p.random(5,10)
     let speedR = p.random(30, 100)
 
+    // slower speed and smaller size if is mobile for readability
+    if( window.innerWidth <= 400 ){
+      diam = p.random( 30, 50 )
+      speedX = p.random(1,4)
+      speedY = p.random(1,4)
+    }
+
     let dirX = 1
     let dirY = 1
 
@@ -93,6 +100,12 @@ const Background = (props) => {
     // create sketch
     const p5 = require("p5")
     const BG_sketch = new p5(sketch, cnv.current)
+
+    // change bg color if color-scheme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      highlightColor = css.getPropertyValue('--color-highlight')
+      bgColor = css.getPropertyValue('--color-bg')
+    })
 
   },[])
 
